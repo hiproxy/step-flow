@@ -1,0 +1,51 @@
+{
+  "name": "step-flow",
+  "version": "1.0.0",
+  "description": "step flow",
+  "main": "lib/index.js",
+  "scripts": {
+    "doc": "jsdoc2md lib/*.js",
+    "test": "nyc mocha test/*.js",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "report": "npm test && nyc report --reporter=lcov --reporter=html",
+    "semistandard": "semistandard",
+    "t": "nyc mocha test/tool/*.test.js && nyc report --reporter=lcov --reporter=html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zdying/step-flow.git"
+  },
+  "keywords": [
+    "step",
+    "flow"
+  ],
+  "author": "zdying",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zdying/step-flow/issues"
+  },
+  "homepage": "https://github.com/zdying/step-flow#readme",
+  "devDependencies": {
+    "codecov": "^2.2.0",
+    "ghooks": "^2.0.0",
+    "mocha": "^3.4.2",
+    "nyc": "^11.0.2",
+    "semistandard": "^11.0.0"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run semistandard",
+      "pre-push": "npm test"
+    }
+  },
+  "semistandard": {
+    "globals": [
+      "it",
+      "describe",
+      "beforeEach",
+      "afterEach",
+      "before",
+      "after"
+    ]
+  }
+}
