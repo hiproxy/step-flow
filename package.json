@@ -29,7 +29,7 @@
     "codecov": "^2.2.0",
     "ghooks": "^2.0.0",
     "mocha": "^3.4.2",
-    "nyc": "^11.0.2",
+    "nyc": "^10.2.0",
     "semistandard": "^11.0.0"
   },
   "config": {
