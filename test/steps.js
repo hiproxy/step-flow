@@ -1,6 +1,6 @@
 var Steps = require('../lib/group');
 
-var assert = require('assert');
+// var assert = require('assert');
 
 describe('Steps', function () {
   var seq = new Steps();
@@ -42,25 +42,25 @@ describe('Steps', function () {
       ctx.fn5 = true;
     });
 
-  describe('# run without filter param', function () {
-    var ctx = {
-      initialized: true
-    };
+  // describe('# run without filter param', function () {
+  //   var ctx = {
+  //     initialized: true
+  //   };
 
-    seq.run(ctx);
+  //   seq.run(ctx);
 
-    it('# should run default functions', function () {
-      console.log('==>', ctx);
-      assert.equal(ctx.fn1, true);
-      assert.equal(ctx.fn11, true);
-      assert.equal(ctx.fn2, true);
-      assert.equal(ctx.fn3, true);
-    });
+  //   it('# should run default functions', function () {
+  //     console.log('==>', ctx);
+  //     assert.equal(ctx.fn1, true);
+  //     assert.equal(ctx.fn11, true);
+  //     assert.equal(ctx.fn2, true);
+  //     assert.equal(ctx.fn3, true);
+  //   });
 
-    it('# should not run group functions', function () {
-      assert.notEqual(ctx.fn5, true);
-    });
-  });
+  //   it('# should not run group functions', function () {
+  //     assert.notEqual(ctx.fn5, true);
+  //   });
+  // });
 
   // describe('# run with filter param', function () {
   //   var ctx = {
