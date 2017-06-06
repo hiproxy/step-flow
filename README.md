@@ -1,5 +1,6 @@
 # step-flow
-step flow
+
+简单的流程控制库，可以轻松的完成按步骤执行的流程控制。支持异步的步骤流程和流程跳转。
 
 [![Build Status](https://travis-ci.org/zdying/step-flow.svg?branch=master)](https://travis-ci.org/zdying/step-flow)
 [![Build status](https://ci.appveyor.com/api/projects/status/okl9e4xs1nsuv7yq/branch/master?svg=true)](https://ci.appveyor.com/project/zdying/step-flow/branch/master)
@@ -8,29 +9,29 @@ step flow
 [![Node.js version](https://img.shields.io/badge/node-%3E%3D0.12.7-green.svg)](https://nodejs.org/)
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/zdying/step-flow/blob/master/LICENSE)
 
-# Install
+# 安装
 
 ```bash
 npm install --save step-flow
 ```
 
-# Usage
+# 使用
 
-### 1. Import step-flow
+### 1. 引入step-flow
 
 ```js
 var Flow = require('step-flow');
 ```
 
-### 2. Create instance
+### 2. 创建一个流程
 
 ```js
 var flow = new Flow();
 ```
 
-### 3. Add steps
+### 3. 添加步骤和函数
 
-One step contains multiple functions:
+一个步骤，对应多个函数：
 
 ```js
 flow.use(
@@ -46,7 +47,7 @@ flow.use(
 );
 ```
 
-One step contains only one function:
+一个步骤对应一个函数：
 
 ```js
 flow
@@ -59,7 +60,7 @@ flow
   });
 ```
 
-### 4. Error handler
+### 4. 错误处理
 
 ```js
 flow.catch(function (err) {
@@ -67,13 +68,62 @@ flow.catch(function (err) {
 });
 ```
 
-### 5. Run with context
+### 5. 运行步骤函数
 
 ```js
 var context = {};
 
 flow.run(context)
 ```
+
+# API
+
+<a name="StepFlow"></a>
+
+## StepFlow()
+步骤流程控制
+
+* [StepFlow()](#StepFlow)
+    * [.use([stepName])](#StepFlow+use) ⇒ <code>[StepFlow](#StepFlow)</code>
+    * [.catch(fn)](#StepFlow+catch) ⇒ <code>[StepFlow](#StepFlow)</code>
+    * [.run(context, stepName)](#StepFlow+run) ⇒ <code>[StepFlow](#StepFlow)</code>
+
+<a name="StepFlow+use"></a>
+
+### stepFlow.use([stepName]) ⇒ <code>[StepFlow](#StepFlow)</code>
+添加步骤以及对应的函数。
+如果指定的步骤已经存在，这些函数将会追加到这个步骤中。
+如果不存在，则新建一个新的步骤。
+
+**Kind**: instance method of <code>[StepFlow](#StepFlow)</code>  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [stepName] | <code>String</code> | <code>&#x27;default&#x27;</code> | 需要新建或者追加函数的步骤名称，如果省略这个参数，默认使用`default` |
+
+<a name="StepFlow+catch"></a>
+
+### stepFlow.catch(fn) ⇒ <code>[StepFlow](#StepFlow)</code>
+添加错误处理函数，当调用`next(err)`，并传递非空的`err`参数时，会调用这些错误处理函数。
+
+**Kind**: instance method of <code>[StepFlow](#StepFlow)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| fn | <code>function</code> | 错误处理函数 |
+
+<a name="StepFlow+run"></a>
+
+### stepFlow.run(context, stepName) ⇒ <code>[StepFlow](#StepFlow)</code>
+开始执行步骤函数。
+如果指定了步骤名称，将从对应的步骤开始执行。如果没有指定，则从第一个步骤开始执行。
+
+**Kind**: instance method of <code>[StepFlow](#StepFlow)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| context | <code>Any</code> | the context object |
+| stepName | <code>String</code> | the step name |
 
 # License
 
