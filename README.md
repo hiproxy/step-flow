@@ -2,6 +2,7 @@
 step flow
 
 [![Build Status](https://travis-ci.org/zdying/step-flow.svg?branch=master)](https://travis-ci.org/zdying/step-flow)
+[![Build status](https://ci.appveyor.com/api/projects/status/okl9e4xs1nsuv7yq/branch/master?svg=true)](https://ci.appveyor.com/project/zdying/step-flow/branch/master)
 [![codecov](https://codecov.io/gh/zdying/step-flow/branch/master/graph/badge.svg)](https://codecov.io/gh/zdying/step-flow)
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat)](https://github.com/Flet/semistandard)
 [![Node.js version](https://img.shields.io/badge/node-%3E%3D0.12.7-green.svg)](https://nodejs.org/)
