@@ -122,8 +122,8 @@ flow.run(context)
 
 | Param | Type | Description |
 | --- | --- | --- |
-| context | <code>Any</code> | the context object |
-| stepName | <code>String</code> | the step name |
+| context | <code>Any</code> | 上下文对象，每个步骤的函数都会接受到这个参数 |
+| stepName | <code>String</code> | 起始步骤名称，默认从第一个步骤开始 |
 
 # License
 
