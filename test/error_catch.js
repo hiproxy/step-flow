@@ -10,7 +10,7 @@ describe('# error catch', function () {
     function fn1 (ctx, next) {
       ctx.fn1 = true;
       ctx.order.push('fn1');
-      next(null, { time: new Date() });
+      next();
     },
     function fn11 (ctx, next) {
       ctx.fn11 = true;
