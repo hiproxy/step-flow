@@ -1,6 +1,6 @@
 # step-flow
 
-简单的流程控制库，可以轻松的完成按步骤执行的流程控制。支持异步的步骤流程和流程跳转。
+简单的流程控制库，可以轻松的完成按步骤执行的流程控制 - 按顺序一个一个执行函数。支持异步的步骤流程和流程跳转。
 
 [![Build Status](https://travis-ci.org/zdying/step-flow.svg?branch=master)](https://travis-ci.org/zdying/step-flow)
 [![Build status](https://ci.appveyor.com/api/projects/status/okl9e4xs1nsuv7yq/branch/master?svg=true)](https://ci.appveyor.com/project/zdying/step-flow/branch/master)
@@ -8,6 +8,16 @@
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat)](https://github.com/Flet/semistandard)
 [![Node.js version](https://img.shields.io/badge/node-%3E%3D0.12.7-green.svg)](https://nodejs.org/)
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/zdying/step-flow/blob/master/LICENSE)
+
+# 特色
+
+* 简洁轻量
+* 代码覆盖率100%
+* 支持步骤名称
+* 支持步骤自由跳转
+* 支持异步步骤流程
+* 支持错误统一处理
+* 支持上下文
 
 # 安装
 
