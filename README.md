@@ -83,6 +83,8 @@ flow.run(context)
 ## StepFlow()
 步骤流程控制
 
+**Kind**: global function  
+
 * [StepFlow()](#StepFlow)
     * [.use([stepName])](#StepFlow+use) ⇒ <code>[StepFlow](#StepFlow)</code>
     * [.catch(fn)](#StepFlow+catch) ⇒ <code>[StepFlow](#StepFlow)</code>
@@ -106,6 +108,8 @@ flow.run(context)
 ### stepFlow.catch(fn) ⇒ <code>[StepFlow](#StepFlow)</code>
 添加错误处理函数，当调用`next(err)`，并传递非空的`err`参数时，会调用这些错误处理函数。
 
+参数`fn`会接受到参数`(err)`, `err`为错误信息。
+
 **Kind**: instance method of <code>[StepFlow](#StepFlow)</code>  
 
 | Param | Type | Description |
@@ -118,12 +122,18 @@ flow.run(context)
 开始执行步骤函数。
 如果指定了步骤名称，将从对应的步骤开始执行。如果没有指定，则从第一个步骤开始执行。
 
+每一个函数都会接受到参数`(context, next, nextTo)`：
+
+* `context`为上下文对象。
+* `next`是一个方法，只有调用这个方法后才能执行步骤中的下一个函数。当调用`next(err)`，并传递非空的`err`参数时，会调用这些错误处理函数。
+* `nextTo`是一个方法，调用这个方法并传递步骤名称，可以跳转到对应的步骤。
+
 **Kind**: instance method of <code>[StepFlow](#StepFlow)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | context | <code>Any</code> | 上下文对象，每个步骤的函数都会接受到这个参数 |
-| stepName | <code>String</code> | 起始步骤名称，默认从第一个步骤开始 |
+| stepName | <code>String</code> |起始步骤名称，默认从第一个步骤开始 |
 
 # License
 
