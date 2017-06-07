@@ -94,23 +94,29 @@ flow.run(context)
 步骤流程控制
 
 * [StepFlow()](#StepFlow)
-    * [.use([stepName])](#StepFlow+use) ⇒ <code>[StepFlow](#StepFlow)</code>
-    * [.catch(fn)](#StepFlow+catch) ⇒ <code>[StepFlow](#StepFlow)</code>
-    * [.run(context, stepName)](#StepFlow+run) ⇒ <code>[StepFlow](#StepFlow)</code>
+    * [.use([stepName])](#StepFlow+use) ⇒ [<code>StepFlow</code>](#StepFlow)
+    * [.catch(fn)](#StepFlow+catch) ⇒ [<code>StepFlow</code>](#StepFlow)
+    * [.run(context, stepName)](#StepFlow+run) ⇒ [<code>StepFlow</code>](#StepFlow)
 
 <a name="StepFlow+use"></a>
 
-### stepFlow.use([stepName]) ⇒ <code>[StepFlow](#StepFlow)</code>
+<br/>
+
+### stepFlow.use([stepName]) ⇒ [<code>StepFlow</code>](#StepFlow)
 添加步骤以及对应的函数。
 如果指定的步骤已经存在，这些函数将会追加到这个步骤中。
 如果不存在，则新建一个新的步骤。
 
-每一个函数执行时都会接受到参数`(context, next, nextTo)`：
+这里添加的每一个函数在执行时都会接收到参数`(context, next, nextTo, data)`：
 
 * `context`：上下文对象。
-* `next(err)`：只有调用这个方法后才能执行步骤中的下一个函数。当调用`next(err)`，并传递非空的`err`参数时，会调用错误处理函数。
-* `nextTo(step)`：调用这个方法并传递步骤名称，可以跳转到对应的步骤。
+* `next(err[,data])`：执行步骤中的下一个函数，如果不调用，不会执行下一个函数。
+* `nextTo(step[,data])`：调用这个方法并传递步骤名称，可以跳转到对应的步骤。
+* `data`：调用`next(null, data)`中传入的数据。
 
+只有调用`next()`，才会继续执行步骤中的下一个函数。如果调用时，传入了非空的参数`err`，则后面的函数不再执行，使用`catch(fn)`设置的错误处理函数会被执行。
+如果调用`next()`/`nextTo()`时，传递了参数`data`，**下一个**函数会接收到这个数据。
+但是，下一个之后的的函数不会接收到这个数据，除非在下一个函数中再次调用`next()/nextTo()`时传递`data`。
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -118,10 +124,12 @@ flow.run(context)
 
 <a name="StepFlow+catch"></a>
 
-### stepFlow.catch(fn) ⇒ <code>[StepFlow](#StepFlow)</code>
+<br/>
+
+### stepFlow.catch(fn) ⇒ [<code>StepFlow</code>](#StepFlow)
 添加错误处理函数，当调用`next(err)`，并传递非空的`err`参数时，会调用这些错误处理函数。
 
-参数`fn`会接受到参数`(err)`, `err`为错误信息。 
+参数`fn`会接受到参数`(err)`, `err`为错误信息。
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -129,7 +137,9 @@ flow.run(context)
 
 <a name="StepFlow+run"></a>
 
-### stepFlow.run(context, stepName) ⇒ <code>[StepFlow](#StepFlow)</code>
+<br/>
+
+### stepFlow.run(context, stepName) ⇒ [<code>StepFlow</code>](#StepFlow)
 开始执行步骤函数。
 如果指定了步骤名称，将从对应的步骤开始执行。如果没有指定，则从第一个步骤开始执行。
 
