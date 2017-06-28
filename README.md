@@ -9,7 +9,7 @@
 [![Node.js version](https://img.shields.io/badge/node-%3E%3D0.12.7-green.svg)](https://nodejs.org/)
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/zdying/step-flow/blob/master/LICENSE)
 
-# 特色
+## 特色
 
 * 简洁轻量
 * 代码覆盖率100%
@@ -19,13 +19,13 @@
 * 支持错误统一处理
 * 支持上下文
 
-# 安装
+## 安装
 
 ```bash
 npm install --save step-flow
 ```
 
-# 使用
+## 使用
 
 ### 1. 引入step-flow
 
@@ -86,11 +86,11 @@ var context = {};
 flow.run(context)
 ```
 
-# API
+## API
 
 <a name="StepFlow"></a>
 
-## StepFlow()
+### StepFlow()
 步骤流程控制
 
 * [StepFlow()](#StepFlow)
@@ -102,7 +102,7 @@ flow.run(context)
 
 <br/>
 
-### stepFlow.use([stepName]) ⇒ [<code>StepFlow</code>](#StepFlow)
+#### stepFlow.use([stepName]) ⇒ [<code>StepFlow</code>](#StepFlow)
 添加步骤以及对应的函数。
 如果指定的步骤已经存在，这些函数将会追加到这个步骤中。
 如果不存在，则新建一个新的步骤。
@@ -126,7 +126,7 @@ flow.run(context)
 
 <br/>
 
-### stepFlow.catch(fn) ⇒ [<code>StepFlow</code>](#StepFlow)
+#### stepFlow.catch(fn) ⇒ [<code>StepFlow</code>](#StepFlow)
 添加错误处理函数，当调用`next(err)`，并传递非空的`err`参数时，会调用这些错误处理函数。
 
 参数`fn`会接受到参数`(err)`, `err`为错误信息。
@@ -139,7 +139,7 @@ flow.run(context)
 
 <br/>
 
-### stepFlow.run(context, stepName) ⇒ [<code>StepFlow</code>](#StepFlow)
+#### stepFlow.run(context, stepName) ⇒ [<code>StepFlow</code>](#StepFlow)
 开始执行步骤函数。
 如果指定了步骤名称，将从对应的步骤开始执行。如果没有指定，则从第一个步骤开始执行。
 
@@ -149,6 +149,6 @@ flow.run(context)
 | stepName | <code>String</code> |起始步骤名称，默认从第一个步骤开始 |
 
 
-# License
+## License
 
 [MIT](https://github.com/zdying/step-flow/blob/master/LICENSE)
