@@ -93,7 +93,6 @@ flow.run(context)
 <a name="StepFlow"></a>
 
 ### StepFlow()
-步骤流程控制
 
 * [StepFlow()](#StepFlow)
     * [.use([stepName])](#StepFlow+use) ⇒ [<code>StepFlow</code>](#StepFlow)
