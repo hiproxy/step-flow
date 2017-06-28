@@ -118,8 +118,7 @@ Only call `next()` will continue to execute the next function in the step. If a 
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| [stepName] | <code>String</code> | <code>&#x27;default&#x27;</code> | 
-The step name, if you omit this parameter, the default use is `default` |
+| [stepName] | <code>String</code> | <code>&#x27;default&#x27;</code> | The step name, if you omit this parameter, the default use is `default` |
 
 <a name="StepFlow+catch"></a>
 
@@ -146,8 +145,7 @@ If the step name is specified, it will be executed from the corresponding step. 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| context | <code>Any</code> | 
-Context object, the function of each step will accept this parameter|
+| context | <code>Any</code> | Context object, the function of each step will accept this parameter|
 | stepName | <code>String</code> |Start step name, starting from the first step by default |
 
 ## Running tests
