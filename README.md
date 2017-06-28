@@ -2,7 +2,7 @@
 
 step-flow is a lightweight(without any libraries and less than 200 lines) business processes control library that allows to easily manage business logic by step. step-flow using the syntax of middleware which is similar to express. It provides process control, step jumps, and unified error handling.
 
-[中文版文档](https://github.com/zdying/step-flow/blob/master/README-zh.MD)
+[中文版文档](https://github.com/zdying/step-flow/blob/master/README-zh.md)
 
 [![Build Status](https://travis-ci.org/zdying/step-flow.svg?branch=master)](https://travis-ci.org/zdying/step-flow)
 [![Build status](https://ci.appveyor.com/api/projects/status/okl9e4xs1nsuv7yq/branch/master?svg=true)](https://ci.appveyor.com/project/zdying/step-flow/branch/master)
