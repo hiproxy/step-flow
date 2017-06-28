@@ -156,14 +156,14 @@ npm test
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/zdying/step-flow/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+请参阅[CONTRIBUTING.md](https://github.com/zdying/step-flow/blob/master/CONTRIBUTING.md)了解我们的行为准则以及如何为step-flow贡献代码。
 
 ## Authors
 
 * __zdying__ - _HTML/JavaScript/CSS/Node.js developer_ [zdying](https://github.com/zdying)
 
-See also the list of [contributors](https://github.com/zdying/step-flow/graphs/contributors) who participated in this project.
+查看其他贡献者 [contributors](https://github.com/zdying/step-flow/graphs/contributors)。
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/zdying/step-flow/blob/master/LICENSE) file for details
+这个项目采用MIT协议 - 详细信息请查看[LICENSE](https://github.com/zdying/step-flow/blob/master/LICENSE)。
