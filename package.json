@@ -1,6 +1,6 @@
 {
   "name": "step-flow",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "step flow",
   "main": "lib/flow.js",
   "scripts": {
