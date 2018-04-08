@@ -62,6 +62,7 @@ describe('# nextTo()', function () {
 
   it('# should throw error when step name is not string', function () {
     var flow = new Flow();
+    var err = null;
 
     flow.use(
       'step1',
@@ -75,14 +76,18 @@ describe('# nextTo()', function () {
       }
     );
 
-    assert.throws(
-      flow.run.bind(flow, {}),
-      /The `step` parameter must be a non-empty string/
-    );
+    flow.catch(function (e) {
+      err = e;
+    });
+
+    flow.run({});
+
+    assert.equal(err.message, 'The `step` parameter must be a non-empty string');
   });
 
   it('# should throw error when step is not exists', function () {
     var flow = new Flow();
+    var err = null;
 
     flow.use(
       'step1',
@@ -96,9 +101,12 @@ describe('# nextTo()', function () {
       }
     );
 
-    assert.throws(
-      flow.run.bind(flow, {}),
-      /The step `step20` not exists/
-    );
+    flow.catch(function (e) {
+      err = e;
+    });
+
+    flow.run({});
+
+    assert.equal(err.message, 'The step `step20` not exists');
   });
 });

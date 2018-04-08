@@ -128,6 +128,8 @@ Only call `next()` will continue to execute the next function in the step. If a 
 
 Add error handling functions that will be executed when `next (err)` is called and a non-null `err` arguments are passed.
 
+In addition, if an error occurs while running the method specified by the `use()` method, `fn` will also be executed and the error object will be passed to `fn`.
+
 The `fn` will accept the parameter`(err)`,`err` for the error message.
 
 | Param | Type | Description |

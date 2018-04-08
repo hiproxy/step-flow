@@ -129,6 +129,8 @@ flow.run(context)
 #### stepFlow.catch(fn) ⇒ [<code>StepFlow</code>](#StepFlow)
 添加错误处理函数，当调用`next(err)`，并传递非空的`err`参数时，会调用这些错误处理函数。
 
+此外，如果`use()`方法指定的方法运行时报错，`fn`也会被执行，错误对象也会被传递给`fn`。
+
 参数`fn`会接受到参数`(err)`, `err`为错误信息。
 
 | Param | Type | Description |
