@@ -96,7 +96,7 @@ flow.run(context)
 * [StepFlow()](#StepFlow)
     * [.use([stepName])](#StepFlow+use) ⇒ [<code>StepFlow</code>](#StepFlow)
     * [.catch(fn)](#StepFlow+catch) ⇒ [<code>StepFlow</code>](#StepFlow)
-    * [.run(context, stepName)](#StepFlow+run) ⇒ [<code>StepFlow</code>](#StepFlow)
+    * [.run(context, stepName, thisArg)](#StepFlow+run) ⇒ [<code>StepFlow</code>](#StepFlow)
 
 <a name="StepFlow+use"></a>
 
@@ -141,7 +141,7 @@ flow.run(context)
 
 <br/>
 
-#### stepFlow.run(context, stepName) ⇒ [<code>StepFlow</code>](#StepFlow)
+#### stepFlow.run(context, stepName, thisArg) ⇒ [<code>StepFlow</code>](#StepFlow)
 开始执行步骤函数。
 如果指定了步骤名称，将从对应的步骤开始执行。如果没有指定，则从第一个步骤开始执行。
 
@@ -149,6 +149,7 @@ flow.run(context)
 | --- | --- | --- |
 | context | <code>Any</code> | 上下文对象，每个步骤的函数都会接受到这个参数 |
 | stepName | <code>String</code> |起始步骤名称，默认从第一个步骤开始 |
+| thisArg | <code>Object</code> | 步骤函数的this |
 
 ## Running tests
 

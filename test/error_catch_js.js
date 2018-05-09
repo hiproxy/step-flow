@@ -33,13 +33,18 @@ describe('# error catch', function () {
       ctx.fn3 = true;
     });
 
-  flow.catch(function (err) {
+  var ctx = {order: []};
+  var thisArg = {};
+  var cbkThis = null;
+  var cbkCtx = null;
+
+  flow.catch(function (err, context) {
     errorInfo = err;
+    cbkThis = this;
+    cbkCtx = context;
   });
 
-  var ctx = {order: []};
-
-  flow.run(ctx);
+  flow.run(ctx, null, thisArg);
 
   it('# should catch the error info', function () {
     assert.equal(errorInfo.message, 'Cannot read property \'b\' of undefined');
@@ -53,5 +58,13 @@ describe('# error catch', function () {
   it('# should not run functions after error occurs', function () {
     assert.equal(ctx.fn2, undefined);
     assert.equal(ctx.fn3, undefined);
+  });
+
+  it('# should get the `this` value specified to `run()`', function () {
+    assert.equal(thisArg, cbkThis);
+  });
+
+  it('# should get the `context` value specified to `run()`', function () {
+    assert.equal(ctx, cbkCtx);
   });
 });

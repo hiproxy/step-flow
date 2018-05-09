@@ -97,7 +97,7 @@ flow.run(context)
 * [StepFlow()](#StepFlow)
     * [.use([stepName])](#StepFlow+use) ⇒ [<code>StepFlow</code>](#StepFlow)
     * [.catch(fn)](#StepFlow+catch) ⇒ [<code>StepFlow</code>](#StepFlow)
-    * [.run(context, stepName)](#StepFlow+run) ⇒ [<code>StepFlow</code>](#StepFlow)
+    * [.run(context, stepName, thisArg)](#StepFlow+run) ⇒ [<code>StepFlow</code>](#StepFlow)
 
 <a name="StepFlow+use"></a>
 
@@ -140,7 +140,7 @@ The `fn` will accept the parameter`(err)`,`err` for the error message.
 
 <br/>
 
-#### stepFlow.run(context, stepName) ⇒ [<code>StepFlow</code>](#StepFlow)
+#### stepFlow.run(context, stepName, thisArg) ⇒ [<code>StepFlow</code>](#StepFlow)
 
 Start to run the step functions.
 If the step name is specified, it will be executed from the corresponding step. If it is not specified, it will be executed from the first step.
@@ -149,6 +149,7 @@ If the step name is specified, it will be executed from the corresponding step. 
 | --- | --- | --- |
 | context | <code>Any</code> | Context object, the function of each step will accept this parameter|
 | stepName | <code>String</code> |Start step name, starting from the first step by default |
+| thisArg | <code>Object</code> | The `this` value of the step functions |
 
 ## Running tests
 
